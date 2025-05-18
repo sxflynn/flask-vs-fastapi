@@ -9,6 +9,8 @@ services:
       - "8080:8080"
     networks:
       - webnet
+    cpus: 0.25        # Limit to 0.5 CPU cores
+    mem_limit: 128m    # Limit to 256 MB RAM
 
   fastapi-app:
     build:
@@ -18,6 +20,8 @@ services:
       - "8081:8081"
     networks:
       - webnet
+    cpus: 0.25
+    mem_limit: 128m
 
 networks:
   webnet:
