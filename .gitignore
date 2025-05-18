@@ -1,0 +1,58 @@
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Logs and test results
+*.log
+*.out
+*.err
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python-specific
+pip-log.txt
+pip-delete-this-directory.txt
+
+# VS Code / PyCharm config (optional)
+.vscode/
+.idea/
+
+# Docker
+*.pid
+*.tar
+*.img
+*.bak
+docker-compose.override.yml
+
+# Environment files (if added)
+.env
+.env.*
+
+# Load test results / debug output
+*.csv
+*.tmp
+
+# HTML cache (if served via dev server)
+*.swp
+*.swo
+
+# Compiled C extensions (just in case)
+*.so
+
+# Ignore built images (if saved)
+*.tar.gz
+*.zip
+
+# Ignore node_modules in case of frontend experimentation
+node_modules/
+
+# Index files opened directly in browser (allowed in repo)
+# index.html is NOT ignored, since it's a core file here

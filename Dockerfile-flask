@@ -1,0 +1,13 @@
+FROM python:3.13-slim
+
+WORKDIR /code
+
+COPY ./requirements.txt /code/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./flask_app.py /code/
+
+COPY ./wsgi.py /code/
+
+CMD ["gunicorn", "-w", "8", "-b", "0.0.0.0:8080", "wsgi:app"]

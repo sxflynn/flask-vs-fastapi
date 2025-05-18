@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Flask vs FastAPI Test</title>
+  </head>
+  <body>
+    <h1>Flask vs FastAPI</h1>
+
+    <div>
+      <button onclick="callFlask()">Call Flask</button>
+      <p id="flask-result"></p>
+    </div>
+
+    <div>
+      <button onclick="callFastAPI()">Call FastAPI</button>
+      <p id="fastapi-result"></p>
+    </div>
+
+    <script>
+      function callFlask() {
+        fetch("http://localhost:8080/process", {
+          method: "POST",
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("flask-result").innerText = data;
+          })
+          .catch((error) => {
+            document.getElementById("flask-result").innerText =
+              "Error: " + error;
+          });
+      }
+
+      function callFastAPI() {
+        fetch("http://localhost:8001/process", {
+          method: "POST",
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("fastapi-result").innerText = data;
+          })
+          .catch((error) => {
+            document.getElementById("fastapi-result").innerText =
+              "Error: " + error;
+          });
+      }
+    </script>
+  </body>
+</html>
