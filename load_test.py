@@ -92,7 +92,7 @@ def run_load_test(
         for future in as_completed(futures):
             success, result = future.result()
             results.append(result)
-            if success and result == expected_response:
+            if success and expected_response in result:
                 successes += 1
 
     duration = time.time() - start_time

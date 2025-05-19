@@ -59,17 +59,18 @@ To compare how each app handles multiple simultaneous requests, use the load tes
 Flask:
 
 ```shell
-python load_test.py --url http://localhost:8080/process --requests 20 --concurrency 20
+python load_test.py --url http://localhost:8080/process --requests 500 --concurrency 20
 ```
 
 FastAPI:
 
 ```shell
-python load_test.py --url http://localhost:8001/process --requests 20 --concurrency 20
+python load_test.py --url http://localhost:8081/process --requests 500 --concurrency 20
 ```
 
-### Expected results:
+Flask Async:
 
-The Flask server should take about 40 seconds to complete 20 requests, since each one blocks for 2 seconds.
+```shell
+python load_test.py --url http://localhost:8082/process --requests 500 --concurrency 20
+```
 
-The FastAPI server should complete all 20 requests in about 2 seconds, since the async function allows concurrent handling.

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   flask-app:
     build:
@@ -9,8 +7,8 @@ services:
       - "8080:8080"
     networks:
       - webnet
-    cpus: 0.25        # Limit to 0.5 CPU cores
-    mem_limit: 128m    # Limit to 256 MB RAM
+    cpus: 0.25  
+    mem_limit: 128m
 
   fastapi-app:
     build:
@@ -18,6 +16,17 @@ services:
       dockerfile: Dockerfile-fastapi
     ports:
       - "8081:8081"
+    networks:
+      - webnet
+    cpus: 0.25
+    mem_limit: 128m
+  
+  flask-async-app:
+    build:
+      context: .
+      dockerfile: Dockerfile-flask-async
+    ports:
+      - "8082:8082"
     networks:
       - webnet
     cpus: 0.25

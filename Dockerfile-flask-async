@@ -6,6 +6,6 @@ COPY ./requirements.txt /code/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY ./fastapi/fastapi_app.py /code/
+COPY ./flask_async/flask_async_app.py /code/
 
-CMD ["fastapi", "run", "fastapi_app.py", "--port", "8081"]
+CMD ["hypercorn", "flask_async_app:app", "--bind", "0.0.0.0:8082", "--workers", "4"]
